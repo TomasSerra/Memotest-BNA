@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import './Memotest.scss'
 
-import F1 from '../../img/fichas/1.jpg'
-import F2 from '../../img/fichas/2.jpg'
-import F3 from '../../img/fichas/3.jpg'
-import F4 from '../../img/fichas/4.jpg'
+import F1 from '../../img/fichas/1.PNG'
+import F2 from '../../img/fichas/2.PNG'
+import F3 from '../../img/fichas/3.PNG'
+import F4 from '../../img/fichas/4.PNG'
 import F5 from '../../img/fichas/5.jpg'
 import F6 from '../../img/fichas/6.jpg'
 
@@ -15,7 +15,9 @@ import Back from '../../img/icono.png'
 import CardTable from '../../components/card table/CardTable';
 import TimeBar from '../../components/time bar/TimeBar';
 
-export default function Memotest({size, time, handlePage, handlePoints}) {
+import Decoration from '../../img/game/decoracion juego.png'
+
+export default function Memotest({size, time, goToNextPage, handlePoints}) {
     const [imgs, setImgs] = useState([F1, F2, F3, F4, F5, F6])
     const[timer, setTimer] = useState(time);
     const[points, setPoints] = useState(0);
@@ -56,7 +58,7 @@ export default function Memotest({size, time, handlePage, handlePoints}) {
             setEnd(true);
             setTimeout(()=>{
                 handlePoints(points);
-                handlePage(2);
+                goToNextPage();
             }, 2000)
         }
     }, [timer])
@@ -79,12 +81,13 @@ export default function Memotest({size, time, handlePage, handlePoints}) {
             <div className="header">
                 <img src={Logo}/>
                 <div className="timer">
-                    <TimeBar maxTime={time} actualTime={timer} colors={{barColor: '#25a244', backgroundColor: '#155d27'}}/>
+                    <TimeBar maxTime={time} actualTime={timer} colors={{barColor: '#009EC9', backgroundColor: '#04405B'}}/>
                 </div>
             </div>
-            {order.length !== 0 && <div className="table-container">
+            {order.length !== 0 &&
+            <div className="table-container">
                 <CardTable
-                    size={window.innerWidth < 600 ? 85 : 75} 
+                    size={window.innerWidth <= 800 ? 75 : 85} 
                     space={2} 
                     columns={3} rows={4}
                     order={order}
@@ -94,7 +97,11 @@ export default function Memotest({size, time, handlePage, handlePoints}) {
                     end={end}
                     backImg={Back}
                 />
-            </div>}
+            </div>
+            }
+            <div className="decoration">
+                <img src={Decoration}/>
+            </div>
         </div>
     )
 }

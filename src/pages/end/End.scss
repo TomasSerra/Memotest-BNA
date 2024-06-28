@@ -1,0 +1,69 @@
+.end-page{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../img/home/fondo\ inicio.png');
+    background-position: center;
+    background-size: cover;
+
+    .header{
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2dvh;
+        margin-top: 3dvh;
+    
+        img{
+            width: 20vw;
+        }
+    }
+
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .blue{
+            color: #009EC9;
+        }
+
+        .orange{
+            color: #F06C29;
+        }
+
+        h1{
+            color: white;
+            font-size: 12vw;
+            margin: 0;
+            margin-top: 12dvh;
+            text-align: center;
+        }
+
+        h2{
+            color: white;
+            font-size: 8vw;
+            margin: 0;
+            margin-top: 12dvh;
+            text-align: center;
+        }
+
+        img{
+            width: 55vw;
+            margin-top: 5dvh;
+            margin-bottom: 2dvh;
+        }
+
+        p{
+            width: 100%;
+            color: white;
+            font-size: 4vw;
+            text-align: center;
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+}
