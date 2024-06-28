@@ -5,11 +5,11 @@
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    background-image: url(../../img/fondo.png);
+    background-image: url('../../img/game/fondo\ juego.png');
     background-position: center;
     background-size: cover;
     height: 100vh;
-  }
+
    .table-container{
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
   }
 
   .header{
-    width: 75vw;
+    width: 85vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,3 +37,16 @@
         width: 20vw;
     }
   }
+
+  .decoration{
+    width: 100%;
+    margin-top: 4dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      width: 60vw;
+    }
+  }
+}

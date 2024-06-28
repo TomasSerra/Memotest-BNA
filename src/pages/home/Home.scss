@@ -4,84 +4,82 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    background-image: url('../../img/home/fondo.png');
-    background-size: cover;
+    background-image: url('../../img/home/fondo\ inicio.png');
     background-position: center;
+    background-size: cover;
 
-    .hidden-upload-button{
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 15vw;
-        height: 15vw;
-        background-color: transparent;
-        z-index: 100;
-    }
-
-    .hidden-delete-button{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 15vw;
-        height: 15vw;
-        background-color: transparent;
-        z-index: 100;
-    }
-
-    .top-section{
-        margin: 4dvh 0;
+    .header{
+        width: 85vw;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-
+        align-items: center;
+        margin-bottom: 2dvh;
+        margin-top: 3dvh;
         img{
             width: 20vw;
         }
     }
 
-    .title-section{
+    .center{
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        text-align: center;
-        width: 90vw;
-        margin-top: 25dvh;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10dvh;
 
-        h1{
-            font-size: 8vw;
-            color: #ffffff;
-            margin-top: 3dvh;
-            margin-bottom: 1dvh;
-            
+        .decoration{
+            width: 60vw;
         }
 
-        h2{
+        .blue{
+            color: #009EC9;
+        }
+
+        .orange{
+            color: #F06C29;
+        }
+
+        h1{
+            color: white;
+            font-size: 10vw;
             margin: 0;
-            font-size: 5.5vw;
-            color: #ffffff;
+            margin-top: 2dvh;
+        }
+
+        p{
+            width: 70%;
+            color: white;
+            font-size: 4vw;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .gift{
+            width: 30vw;
         }
     }
 
-    .button-section{
-        position: absolute;
-        bottom: 14dvh;
-        right: 3vw;
-
+    .button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10dvh;
         button{
-            width: 43vw;
-            height: 11vw;
-            background: rgb(35,182,216);
-            background: -moz-linear-gradient(0deg, rgba(35,182,216,1) 0%, rgba(74,221,255,1) 100%);
-            background: -webkit-linear-gradient(0deg, rgba(35,182,216,1) 0%, rgba(74,221,255,1) 100%);
-            background: linear-gradient(0deg, rgba(35,182,216,1) 0%, rgba(74,221,255,1) 100%);
-            color: white;
-            font-size: 6vw;
             border: none;
-            border-radius: 100dvh;
-            cursor: pointer;
-            font-family: 'Kievit Bold';
-            box-shadow: rgba(0, 0, 0, 0.226) 0 0 50px;
+            background-color: #F06C29;
+            color: white;
+            font-size: 5vw;
+            padding: 1.5dvh 10vw;
+            border-radius: 1000px;
+        }
+
+        &:active{
+            button{
+                background-color: #c45923;
+            }
         }
     }
 }

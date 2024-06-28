@@ -1,41 +1,37 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './End.scss'
-import Trophy from '../../img/end/trophy.webp'
-import FondoTrofeo from '../../img/end/fondo-trofeo.png'
 import Confetti from 'react-confetti'
 import {useWindowSize} from '@react-hook/window-size'
 
-function End({goToNextPage, logo}) {
+import Logo from '../../img/logo.png'
+import Trofeo from '../../img/end/trofeo.png'
+
+function End({goToNextPage, hasWin}) {
   const [width, height] = useWindowSize()
-
-
-  useEffect(() => {
-    setTimeout(() => {
-      goToNextPage()
-    }, 5000)
-  }, []);
 
   return (
     <div className='end-page'>
-      <Confetti
+      {hasWin && <Confetti
         width={width}
         height={height}
-    	/>
-
-      <div className="top-section">
-        <img src={logo} />
+    	/>}
+      <div className="header">
+        <img src={Logo} />
       </div>
-
-      <div className="title-section">
-        <h1>¡Excelente!</h1>
-        <h2>Respondiste</h2>
+      <div className="center">
+        {hasWin ?
+        <>
+          <h1>
+            <span className='blue'>¡</span>Ganaste<span className='orange'>!</span>
+          </h1>
+          <img src={Trofeo}/>
+          <p>Encontraste todos los pares de productos.</p>
+          <p><b>Disfrutá de tu premio</b></p>
+        </>
+        :
+        <h2>Seguí participando</h2>
+      }
       </div>
-
-      <div className="prize-section">
-        <img className='trophy' src={Trophy}/>
-        <img className='trophy-bg' src={FondoTrofeo}/>
-      </div>
-
     </div>
   )
 }

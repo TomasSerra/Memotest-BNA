@@ -7,18 +7,20 @@ import Logo from './img/logo.png'
 
 function App() {
 
-  const[page, setPage] = useState(1);
-  const[maxTime, setTime] = useState(60);
+  const[page, setPage] = useState(0);
+  const[time, setTime] = useState(60);
+
   const[points, setPoints] = useState(0);
+  const size = 12;
 
   function handlePage(p){setPage(p)}
   function handlePoints(s){setPoints(s)}
 
   return (
     <div className="App">
-      {page === 0 && <Home goToNextPage={() => {handlePage(1)}} logo={Logo}/>}
-      {page === 1 && <Memotest handlePage={handlePage} handlePoints={handlePoints} size={12} time={maxTime}/>}
-      {page === 2 && <End goToNextPage={() => {handlePage(0)}} logo={Logo} />}
+      {page === 0 && <Home goToNextPage={()=>{handlePage(1)}} />}
+      {page === 1 && <Memotest goToNextPage={()=>{handlePage(2)}} handlePoints={handlePoints} size={size} time={time} />}
+      {page === 2 && <End goToNextPage={()=>{handlePage(0)}} hasWin={points===size} />}
     </div>
   );
 }

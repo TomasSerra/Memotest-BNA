@@ -11,7 +11,7 @@ export default function CardItem({col, row, index, frontImg, handleCount, found,
     const style = {
         gridColumn: col,
         gridRow: row,
-        background: !view ? 'url('+backImg+')' +' no-repeat' +' center' +' center / 40% ,' + 'rgb(0,89,138)' : ''
+        background: !view ? 'url('+backImg+')' +' no-repeat' +' center' +' center / 97% ,' + 'rgb(255,255,255)' : ''
     }
 
     function showCard(e){
