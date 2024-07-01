@@ -17,7 +17,7 @@ import TimeBar from '../../components/time bar/TimeBar';
 
 import Decoration from '../../img/game/decoracion juego.png'
 
-export default function Memotest({size, time, goToNextPage, handlePoints}) {
+export default function Memotest({size, time, goToNextPage, handleGlobalPoints}) {
     const [imgs, setImgs] = useState([F1, F2, F3, F4, F5, F6])
     const[timer, setTimer] = useState(time);
     const[points, setPoints] = useState(0);
@@ -38,17 +38,18 @@ export default function Memotest({size, time, goToNextPage, handlePoints}) {
     
     const ratio = window.innerWidth/window.innerHeight
 
-    function handlePoints(p){
-        setPoints(points + p);
-    }
-
     function handleTimer(){
         setTimer(prevTimer => prevTimer-time/1000)
     }
 
+    function handlePoints(p){
+        setPoints(prevPoints => prevPoints+p)
+    }
+
     useEffect(()=>{
         setOrder(randomize(size))
-        setInterval(handleTimer, time*1000/1000);
+        setInterval(handleTimer, time);
+        preloadImages(imgs);
     }, [])
 
     useEffect(()=>{
@@ -57,24 +58,18 @@ export default function Memotest({size, time, goToNextPage, handlePoints}) {
             clearInterval(2);
             setEnd(true);
             setTimeout(()=>{
-                handlePoints(points);
+                handleGlobalPoints(points);
                 goToNextPage();
             }, 2000)
         }
     }, [timer])
 
-    useEffect(() => {
-        const images = imgs.map((url) => {
+      function preloadImages(imageArray) {
+        imageArray.forEach(imageSrc => {
           const img = new Image();
-          img.src = url;
-          return img;
+          img.src = imageSrc;
         });
-    
-        // Clean up
-        return () => {
-          images.forEach((img) => (img.onload = null));
-        };
-      }, [imgs]);
+    }
     
     return (
         <div className='memotest-page'>

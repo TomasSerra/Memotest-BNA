@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './End.scss'
 import Confetti from 'react-confetti'
 import {useWindowSize} from '@react-hook/window-size'
@@ -8,6 +8,12 @@ import Trofeo from '../../img/end/trofeo.png'
 
 function End({goToNextPage, hasWin}) {
   const [width, height] = useWindowSize()
+
+  useEffect(() => {
+    setTimeout(() => {
+      goToNextPage()
+    }, 5000)
+  }, [])
 
   return (
     <div className='end-page'>
