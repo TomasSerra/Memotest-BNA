@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Memotest.scss'
 
 import F1 from '../../img/fichas/1.PNG'
@@ -23,6 +23,8 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
     const[points, setPoints] = useState(0);
     const[end, setEnd] = useState();
     const [order, setOrder] = useState([]);
+    const intervalRef = useRef(null);
+
 
     function randomize(cant){
         let array = [];
@@ -32,15 +34,10 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
                 array.push(num)
             }
         }
-        console.log(array)
         return(array)
       }
     
     const ratio = window.innerWidth/window.innerHeight
-
-    function handleTimer(){
-        setTimer(prevTimer => prevTimer-time/1000)
-    }
 
     function handlePoints(p){
         setPoints(prevPoints => prevPoints+p)
@@ -48,23 +45,29 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
 
     useEffect(()=>{
         setOrder(randomize(size))
-        setInterval(handleTimer, time);
         preloadImages(imgs);
-    }, [])
+
+        intervalRef.current = setInterval(() => {
+            setTimer(prevTimer => prevTimer - time / 1000);
+          }, time);
+
+        return () => {
+            clearInterval(intervalRef.current);
+          };
+    }, [size, time])
 
     useEffect(()=>{
         if(points === size || timer <= 0){
-            clearInterval(1);
-            clearInterval(2);
+            clearInterval(intervalRef.current);
             setEnd(true);
             setTimeout(()=>{
                 handleGlobalPoints(points);
                 goToNextPage();
             }, 2000)
         }
-    }, [timer])
+    }, [points, timer])
 
-      function preloadImages(imageArray) {
+    function preloadImages(imageArray) {
         imageArray.forEach(imageSrc => {
           const img = new Image();
           img.src = imageSrc;
@@ -78,6 +81,7 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
                 <div className="timer">
                     <TimeBar maxTime={time} actualTime={timer} colors={{barColor: '#009EC9', backgroundColor: '#04405B'}}/>
                 </div>
+                <h2>{timer}</h2>
             </div>
             {order.length !== 0 &&
             <div className="table-container">

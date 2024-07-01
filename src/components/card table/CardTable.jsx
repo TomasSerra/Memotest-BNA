@@ -48,37 +48,38 @@ export default function CardTable(props) {
             {props.imgs.map((img, index)=>{
                 const firstPos = props.order[index];
                 const secondPos = props.order[(props.order.length-1) - index];
-                const myRowFirst = Math.floor(firstPos / props.columns) + 1
-                const myColFirst = (firstPos % props.columns) + 1
-                const myRowSecond = Math.floor(secondPos / props.columns) + 1
-                const myColSecond = (secondPos % props.columns) + 1
-                return(
-                <>
-                <CardItem
-                    index={index+1}
-                    found={found}
-                    key={firstPos}
-                    disabled={disabled}
-                    handleCount={handleCount}
-                    row={myRowFirst} 
-                    col={myColFirst}
-                    frontImg={img} 
-                    backImg={props.backImg}
-                />
-                <CardItem 
-                    index={index+1}
-                    found={found}
-                    key={secondPos}
-                    disabled={disabled}
-                    handleCount={handleCount}
-                    row={myRowSecond} 
-                    col={myColSecond}
-                    frontImg={img} 
-                    backImg={props.backImg}
-                />
-                </>
-                )
+                const myRowFirst = Math.floor(firstPos / props.columns) + 1;
+                const myColFirst = (firstPos % props.columns) + 1;
+                const myRowSecond = Math.floor(secondPos / props.columns) + 1;
+                const myColSecond = (secondPos % props.columns) + 1;
+                return (
+                    <React.Fragment key={index}>
+                        <CardItem
+                            index={index+1}
+                            found={found}
+                            key={index+1+' 1'}
+                            disabled={disabled}
+                            handleCount={handleCount}
+                            row={myRowFirst} 
+                            col={myColFirst}
+                            frontImg={img} 
+                            backImg={props.backImg}
+                        />
+                        <CardItem 
+                            key={index+1+' 2'}
+                            index={index+1}
+                            found={found}
+                            disabled={disabled}
+                            handleCount={handleCount}
+                            row={myRowSecond} 
+                            col={myColSecond}
+                            frontImg={img} 
+                            backImg={props.backImg}
+                        />
+                    </React.Fragment>
+                );
             })}
         </div>
-    )
+    );
+    
 }
