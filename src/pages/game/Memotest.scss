@@ -1,20 +1,20 @@
 .memotest-page{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    overflow: hidden;
-    background-image: url('../../img/game/fondo\ juego.png');
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background-image: url('../../img/game/fondo\ juego.png');
+  background-position: center;
+  background-size: cover;
+  height: 100dvh;
 
-   .table-container{
+  .table-container{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 10dvh;
+    margin-top: 5dvh;
   }
 
   .header{
@@ -23,30 +23,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2dvh;
-    position: absolute;
-    top: 3dvh;
-
+    margin-top: 3dvh;
+  
     .timer{
         width: 100%;
-        height: 30px;
-        margin-top: 2dvh;
+        height: 6vw;
+        margin-top: 2dvh; 
     }
-
+  
     img{
         width: 20vw;
     }
   }
-
+  
   .decoration{
     width: 100%;
     margin-top: 4dvh;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-bottom: 10dvh;
+  
     img{
-      width: 60vw;
+        width: 60vw;
     }
   }
 }
+
+
+
+

@@ -4,18 +4,18 @@ import CardItem from '../card item/CardItem';
 
 
 export default function CardTable(props) {
-    const ratio = window.innerWidth/window.innerHeight;
-    const styles = {
+    const [ratio, setRatio] = useState(window.innerWidth/window.innerHeight);
+    const [styles, setStyles] = useState({
         display : 'grid',
         width : ratio>=1 ? props.size + 'vh' : props.size + 'vw',
         gridTemplateColumns : 'repeat(' + props.columns + ', 1fr)',
         gridTemplateRows : 'repeat(' + props.rows + ', 1fr)',
         gridGap : ratio>=1 ? props.space + 'vh' : props.space + 'vw'
-    } 
+    })
 
     const[disabled, setDisabled] = useState(false);
     const[count, setCount] = useState(0);
-    const[found, setFound] = useState();
+    const[found, setFound] = useState('');
 
     function handleCount(index){
         if(count === index){

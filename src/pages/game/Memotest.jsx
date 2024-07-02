@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useReducer } from 'react';
 import './Memotest.scss'
 
 import F1 from '../../img/fichas/1.PNG'
@@ -26,6 +26,7 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
     const intervalRef = useRef(null);
 
 
+
     function randomize(cant){
         let array = [];
         while(array.length<cant){
@@ -37,10 +38,12 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
         return(array)
       }
     
-    const ratio = window.innerWidth/window.innerHeight
-
     function handlePoints(p){
         setPoints(prevPoints => prevPoints+p)
+    }
+
+    function handleTimer(){
+        setTimer(prevTimer => prevTimer - time / 1000)
     }
 
     useEffect(()=>{
@@ -48,7 +51,7 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
         preloadImages(imgs);
 
         intervalRef.current = setInterval(() => {
-            setTimer(prevTimer => prevTimer - time / 1000);
+            handleTimer();
           }, time);
 
         return () => {
@@ -81,22 +84,21 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
                 <div className="timer">
                     <TimeBar maxTime={time} actualTime={timer} colors={{barColor: '#009EC9', backgroundColor: '#04405B'}}/>
                 </div>
-                <h2>{timer}</h2>
             </div>
             {order.length !== 0 &&
-            <div className="table-container">
-                <CardTable
-                    size={window.innerWidth <= 800 ? 75 : 85} 
-                    space={2} 
-                    columns={3} rows={4}
-                    order={order}
-                    imgs={imgs}
-                    back={Back}
-                    handlePoints={handlePoints}
-                    end={end}
-                    backImg={Back}
-                />
-            </div>
+                <div className="table-container">
+                    <CardTable
+                        size={window.innerWidth <= 800 ? 85 : 75} 
+                        space={4} 
+                        columns={3} rows={4}
+                        order={order}
+                        imgs={imgs}
+                        back={Back}
+                        handlePoints={handlePoints}
+                        end={end}
+                        backImg={Back}
+                    />
+                </div>
             }
             <div className="decoration">
                 <img src={Decoration}/>
