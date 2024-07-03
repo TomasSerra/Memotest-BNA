@@ -2,13 +2,6 @@ import React from 'react'
 import { useEffect, useState, useRef, useReducer } from 'react';
 import './Memotest.scss'
 
-import F1 from '../../img/fichas/1.PNG'
-import F2 from '../../img/fichas/2.PNG'
-import F3 from '../../img/fichas/3.PNG'
-import F4 from '../../img/fichas/4.PNG'
-import F5 from '../../img/fichas/5.jpg'
-import F6 from '../../img/fichas/6.jpg'
-
 import Logo from '../../img/logo.png'
 
 import Back from '../../img/icono.png'
@@ -17,18 +10,29 @@ import TimeBar from '../../components/time bar/TimeBar';
 
 import Decoration from '../../img/game/decoracion juego.png'
 
-export default function Memotest({size, time, goToNextPage, handleGlobalPoints}) {
-    const [imgs, setImgs] = useState([F1, F2, F3, F4, F5, F6])
+export default function Memotest({size, time, goToNextPage, handleGlobalPoints, images}) {
+    const [imgs, setImgs] = useState([])
     const[timer, setTimer] = useState(time);
     const[points, setPoints] = useState(0);
     const[end, setEnd] = useState();
     const [order, setOrder] = useState([]);
     const intervalRef = useRef(null);
 
-
-
     function randomize(cant){
         let array = [];
+        let randomImgs = [];
+        let randomNums = [];
+
+        while(randomImgs.length<size/2){
+            const num = Math.floor(Math.random()*images.length)
+            if(!randomNums.includes(num)){
+                randomImgs.push(images[num])
+                randomNums.push(num)
+            }
+        }
+
+        setImgs(randomImgs)
+
         while(array.length<cant){
             const num = Math.floor(Math.random()*cant)
             if(!array.includes(num)){
@@ -36,7 +40,7 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints})
             }
         }
         return(array)
-      }
+    }
     
     function handlePoints(p){
         setPoints(prevPoints => prevPoints+p)
