@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
 import Memotest from './pages/game/Memotest';
 import End from './pages/end/End';
-import Logo from './img/logo.png'
 
 import F1 from './img/fichas/1.png'
 import F2 from './img/fichas/2.png'
@@ -17,7 +16,7 @@ import F8 from './img/fichas/8.png'
 function App() {
 
   const[page, setPage] = useState(0);
-  const[time, setTime] = useState(60);
+  const[time, setTime] = useState(45);
 
   const[points, setPoints] = useState(0);
   const size = 12;
