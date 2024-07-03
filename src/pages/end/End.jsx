@@ -5,6 +5,7 @@ import {useWindowSize} from '@react-hook/window-size'
 
 import Logo from '../../img/logo.png'
 import Trofeo from '../../img/end/trofeo.png'
+import Reloj from '../../img/end/reloj.png'
 
 function End({goToNextPage, hasWin}) {
   const [width, height] = useWindowSize()
@@ -12,7 +13,7 @@ function End({goToNextPage, hasWin}) {
   useEffect(() => {
     setTimeout(() => {
       goToNextPage()
-    }, 5000)
+    }, 6000)
   }, [])
 
   return (
@@ -20,6 +21,9 @@ function End({goToNextPage, hasWin}) {
       {hasWin && <Confetti
         width={width}
         height={height}
+        colors={['#8F8ABD', '#F06C29', '#007B5F', '#507385', '#D4AC87', '#65C9D8']}
+        recycle={true}
+        numberOfPieces={500}
     	/>}
       <div className="header">
         <img src={Logo} />
@@ -35,7 +39,14 @@ function End({goToNextPage, hasWin}) {
           <p><b>Disfrutá de tu premio</b></p>
         </>
         :
-        <h2>Seguí participando</h2>
+        <>
+          <h2>
+            <span className='blue'>¡</span>Se te acabó el tiempo<span className='orange'>!</span>
+          </h2>
+          <img src={Reloj}/>
+          <p>Podes volver a participar.</p>
+          <p><b>Tu premio te espera.</b></p>
+        </>
       }
       </div>
     </div>
