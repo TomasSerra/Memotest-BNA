@@ -16,7 +16,7 @@ import F8 from './img/fichas/8.png'
 function App() {
 
   const[page, setPage] = useState(0);
-  const[time, setTime] = useState(30);
+  const[time, setTime] = useState(35);
 
   const[points, setPoints] = useState(0);
   const size = 12;
@@ -27,6 +27,15 @@ function App() {
   useEffect(() => {
     console.log(points)
   }, [points])
+
+  useEffect(() => {
+    bloquearGestos()
+  }, [])
+
+  function bloquearGestos(){
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('selectstart', event => event.preventDefault());
+  }
 
   return (
     <div className="App">
