@@ -16,7 +16,7 @@ import F8 from './img/fichas/8.png'
 function App() {
 
   const[page, setPage] = useState(0);
-  const[time, setTime] = useState(35);
+  const[time, setTime] = useState(55);
 
   const[points, setPoints] = useState(0);
   const size = 12;
