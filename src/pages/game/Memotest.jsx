@@ -92,7 +92,7 @@ export default function Memotest({size, time, goToNextPage, handleGlobalPoints, 
             {order.length !== 0 &&
                 <div className="table-container">
                     <CardTable
-                        size={window.innerWidth <= 800 ? 85 : 75} 
+                        size={window.innerWidth <= 800 ? 75 : 75} 
                         space={4} 
                         columns={3} rows={4}
                         order={order}
