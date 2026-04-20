@@ -1,55 +1,62 @@
-.memotest-page{
+.memotest-page {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: hidden;
-  background-image: url('../../img/game/fondo\ juego.png');
+  background-image: url("../../img/background.png");
   background-position: center;
   background-size: cover;
   height: 100dvh;
 
-  .table-container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 5dvh;
+  .timer-top {
+    width: 100vw;
+    height: 2.5vw;
+    min-height: 14px;
   }
 
-  .header{
-    width: 85vw;
+  .title-row {
+    width: 80vw;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 3dvh;
-  
-    .timer{
-        width: 100%;
-        height: 6vw;
-        margin-top: 2dvh; 
+    margin-top: 0;
+    gap: 3vw;
+
+    .clock-icon {
+      width: 16vw;
+      height: auto;
+      flex-shrink: 0;
     }
-  
-    img{
-        width: 20vw;
+
+    h2 {
+      color: white;
+      font-size: 5vw;
+      margin: 0;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: left;
     }
   }
-  
-  .decoration{
+
+  .table-container {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    margin-top: 4dvh;
+    margin-top: 0;
+  }
+
+  .footer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10dvh;
-  
-    img{
-        width: 60vw;
+    padding-bottom: 3dvh;
+
+    img {
+      width: 30vw;
     }
   }
 }
-
-
-
-
