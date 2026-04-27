@@ -1,15 +1,13 @@
 @font-face {
   font-family: 'Kievit';
-  src: url(./KievitOT-Regular.otf);
-  font-weight: normal;
+  src: url('./assets/fonts/Kievit Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Kievit';
-  src: url('./assets/fonts/Kievit Bold.otf');
-  font-weight: bold;
-  font-style: normal;
+  font-family: 'Kievit Bold';
+  src: url('./assets/fonts/Kievit Bold.ttf') format('truetype');
 }
 
 body {
