@@ -60,4 +60,13 @@
             margin-top: 2dvh;
         }
     }
+
+    @media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
+        .stats-viewer-component {
+            .close-button { font-size: 3.7vw; }
+            h2 { font-size: 7.5vw; }
+            p  { font-size: 5vw; }
+            .delete-button { font-size: 5vw; }
+        }
+    }
 }

@@ -101,4 +101,18 @@
     animation: zoomIn 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     transform-origin: center;
   }
+
+  @media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
+    .center {
+      h1 { font-size: 12.5vw; }
+      h2 { font-size: 12.5vw; }
+      p  { font-size: 6.8vw; }
+      .final-img-container {
+        width: 62vw;
+        height: 62vw;
+        .final-img-win { margin-left: 6vw; }
+      }
+    }
+    .footer img { width: 37vw; }
+  }
 }

@@ -105,7 +105,13 @@ export default function Memotest({
       {order.length !== 0 && (
         <div className="table-container">
           <CardTable
-            size={window.innerWidth <= 700 ? 80 : 70}
+            size={
+              window.innerWidth <= 700
+                ? 80
+                : (window.innerWidth >= 1000 && window.innerHeight > window.innerWidth)
+                  ? 87
+                  : 70
+            }
             space={2}
             columns={3}
             rows={4}

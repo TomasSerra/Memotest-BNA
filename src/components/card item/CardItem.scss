@@ -16,9 +16,10 @@
     z-index: 3;
   }
 
-  &:focus {
-    border: 1.5px solid rgba(255, 255, 255, 0.85);
+  &:focus,
+  &:focus-visible {
     outline: none;
+    border: none;
   }
 
   .image {
@@ -35,5 +36,13 @@
     border-radius: 2.8vw;
     background-size: cover;
     background-position: center;
+  }
+}
+
+@media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
+  .piece {
+    border-radius: 3.7vw;
+    &::before { border-radius: 2.5vw; }
+    .image { border-radius: 3.5vw; }
   }
 }
